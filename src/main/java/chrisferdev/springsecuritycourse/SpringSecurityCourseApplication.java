@@ -17,12 +17,12 @@ public class SpringSecurityCourseApplication {
 	@Autowired
 	private PasswordEncoder passwordEncoder;
 
-	@Bean
+	/* @Bean
 	public CommandLineRunner createPasswordsCommand(){
 		return args -> {
 			System.out.println(passwordEncoder.encode("clave123"));
 			System.out.println(passwordEncoder.encode("clave456"));
 		};
-	}
+	} */
 
 }

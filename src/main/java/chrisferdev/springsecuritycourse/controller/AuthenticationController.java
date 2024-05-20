@@ -1,5 +1,6 @@
 package chrisferdev.springsecuritycourse.controller;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -15,10 +16,15 @@ import jakarta.validation.Valid;
 @RequestMapping("/auth")
 public class AuthenticationController {
 
+    @Autowired
+    private AuthenticationService authenticationService;
+
     @PostMapping("/authenticate")
     public ResponseEntity<AuthenticationResponse> login(
             @RequestBody @Valid AuthenticationRequest authRequest){
-        return null;
+        
+        AuthenticationResponse jwtDto = authenticationService.login(authRequest);
+        return ResponseEntity.ok(jwtDto);
     }
 
     @GetMapping("/public -access")
