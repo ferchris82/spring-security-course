@@ -1,5 +1,6 @@
 package chrisferdev.springsecuritycourse.service;
 
+import java.util.HashMap;
 import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -21,6 +22,9 @@ public class AuthenticationService {
     @Autowired
     private UserRepository userRepository;
 
+    @Autowired
+    private JwtService jwtService;
+
     public AuthenticationResponse login (AuthenticationRequest authRequest){
 
         UsernamePasswordAuthenticationToken authToken = new UsernamePasswordAuthenticationToken(
@@ -38,5 +42,9 @@ public class AuthenticationService {
 
     private Map<String, Object> generateExtraClaims(User user){
         
+        Map<String, Object> extraClaims = new HashMap<>();
+        extraClaims.put("name", user.getName());
+        extraClaims.put("role", user.getRole().name());
+        return extraClaims;
     }
 }

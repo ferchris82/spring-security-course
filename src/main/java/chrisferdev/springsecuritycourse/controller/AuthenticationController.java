@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import chrisferdev.springsecuritycourse.dto.AuthenticationRequest;
 import chrisferdev.springsecuritycourse.dto.AuthenticationResponse;
+import chrisferdev.springsecuritycourse.service.AuthenticationService;
 import jakarta.validation.Valid;
 
 @RestController
